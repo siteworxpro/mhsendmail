@@ -8,7 +8,7 @@ do
 
     if [[ ${arrIN[0]} == 'linux' || ${arrIN[0]} == 'darwin'  || ${arrIN[0]} == 'freebsd' || ${arrIN[0]} == 'windows' ]]; then
       echo "Building $distro..."
-      GOOS=${arrIN[0]} GOARCH=${arrIN[1]} go build -o dist/mhsendmail_${arrIN[0]}_${arrIN[1]}
+      CGO_ENABLED=0 GOOS=${arrIN[0]} GOARCH=${arrIN[1]} go build -o dist/mhsendmail_${arrIN[0]}_${arrIN[1]}
     fi
 done
 
